@@ -1,5 +1,27 @@
-import React from "react";
-import { render } from "react-dom";
+// import React from "react";
+// import { render } from "react-dom";
+
+function render(initialVirtualTree) {}
+
+function createElement(elementType, props, ...children) {
+  const virtualElementProps = {
+    ...props,
+    children,
+  };
+
+  if (typeof elementType === "function") {
+    return elementType(props);
+  }
+
+  return {
+    tagName: elementType,
+    props: virtualElementProps,
+  };
+}
+
+const React = {
+  createElement,
+};
 
 function App() {
   return React.createElement(
@@ -18,4 +40,4 @@ function App() {
   );
 }
 
-render(<App />, document.querySelector("#root"));
+render(React.createElement(App, null), document.querySelector("#root"));

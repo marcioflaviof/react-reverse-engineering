@@ -2,15 +2,19 @@ import React from "react";
 import { render } from "react-dom";
 
 function App() {
-  return (
-    <section className="App">
-      <h1>Contador</h1>
-      <div>
-        <div>0</div>
-        <button>Incrementar</button>
-        <button>Decrementar</button>
-      </div>
-    </section>
+  return React.createElement(
+    "section",
+    {
+      className: "App",
+    },
+    React.createElement("h1", null, "Contador"),
+    React.createElement(
+      "div",
+      null,
+      React.createElement("div", null, "0"),
+      React.createElement("button", null, "Incrementar"),
+      React.createElement("button", null, "Decrementar")
+    )
   );
 }
 

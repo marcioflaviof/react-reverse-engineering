@@ -1,7 +1,25 @@
 // import React from "react";
 // import { render } from "react-dom";
 
-function render(initialVirtualTree) {}
+function convertToHtml(virtualNode) {
+  const $domElement = document.createElement(virtualNode.tagName);
+
+  if (typeof virtualNode === "string" || typeof virtualNode === "number") {
+    return document.createTextNode(`${virtualNode}`);
+  }
+
+  virtualNode.props.children.forEach((virtualChild) => {
+    $domElement.appendChild(convertToHtml(virtualChild));
+  });
+
+  return $domElement;
+}
+
+function render(initialVirtualTree, $domRoot) {
+  const $appHTML = convertToHtml(initialVirtualTree);
+
+  $domRoot.appendChild($appHTML);
+}
 
 function createElement(elementType, props, ...children) {
   const virtualElementProps = {

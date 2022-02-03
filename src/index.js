@@ -1,7 +1,5 @@
-// import React from "react";
-// import { render } from "react-dom";
-
 function convertToHtml(virtualNode) {
+  console.log(virtualNode);
   const $domElement = document.createElement(virtualNode.tagName);
 
   if (typeof virtualNode === "string" || typeof virtualNode === "number") {
@@ -37,8 +35,15 @@ function createElement(elementType, props, ...children) {
   };
 }
 
+function cloneElement(children, config) {
+  const myProps = { props: { ...children.props, ...config } };
+
+  return { ...children, ...myProps };
+}
+
 const React = {
   createElement,
+  cloneElement,
 };
 
 function App() {

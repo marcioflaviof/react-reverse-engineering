@@ -43,31 +43,16 @@ const React = {
 };
 
 function App() {
-  return React.createElement(
-    "section",
-    {
-      className: "App",
-    },
-    React.createElement("h1", null, "Contador"),
-    React.createElement(
-      "div",
-      null,
-      React.createElement("div", null, "0"),
-      React.createElement("button", null, "Incrementar"),
-      React.createElement("button", null, "Decrementar")
-    )
+  return (
+    <section className="App">
+      <h1>Contador</h1>
+      <div>
+        <div>0</div>
+        <button>Incrementar</button>
+        <button>Decrementar</button>
+      </div>
+    </section>
   );
-
-  // return (
-  //   <section className="App">
-  //     <h1>Contador</h1>
-  //     <div>
-  //       <div>0</div>
-  //       <button>Incrementar</button>
-  //       <button>Decrementar</button>
-  //     </div>
-  //   </section>
-  // );
 }
 
 render(React.createElement(App, null), document.querySelector("#root"));

@@ -1,5 +1,4 @@
 function convertToHtml(virtualNode) {
-  console.log(virtualNode);
   const $domElement = document.createElement(virtualNode.tagName);
 
   if (typeof virtualNode === "string" || typeof virtualNode === "number") {

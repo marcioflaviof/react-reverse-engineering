@@ -34,10 +34,10 @@ function createElement(elementType, props, ...children) {
   };
 }
 
-function cloneElement(children, config) {
-  const myProps = { props: { ...children.props, ...config } };
+function cloneElement(children, props) {
+  const newProps = { props: { ...children.props, ...props } };
 
-  return { ...children, ...myProps };
+  return { ...children, ...newProps };
 }
 
 const React = {
